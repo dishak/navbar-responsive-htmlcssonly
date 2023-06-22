@@ -1,0 +1,140 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav
+{
+ background-color: #2589;
+ height: 10%;
+ width: 100%;
+}
+
+#logo
+{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    padding: 30px 70px;
+    line-height: 80px;
+  
+}
+nav ul
+{
+    float: right;
+    margin-right: 40px;
+}
+nav li
+{
+    display: inline-block;
+    list-style: none;
+    line-height: 80px;
+    padding: 0px 15px;
+
+}
+nav a
+{
+    text-decoration: none;
+    color: whitesmoke;
+    position: relative;
+   font-size: 18px;
+    
+}
+
+/* Creating underline animation effect
+want to now more: c dis: https://www.youtube.com/watch?v=TbmdISaTkNw&ab_channel=SteveGriffith-Prof3ssorSt3v3kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+ */
+nav a::after
+{
+    position: absolute;
+    content: '';
+    background-color:whitesmoke;
+    bottom: 0;
+    right: 0;
+    height: 2px;
+    width: 100%;
+    transform-origin: right bottom;
+    transform: scaleX(0);
+    transition: transform 0.4s linear;
+}
+
+nav a:hover::after
+{
+    transform-origin: left bottom;
+    transform: scaleX(1);
+    transition: transform 0.4s linear;
+
+}
+a:hover
+{
+    cursor: pointer;
+   
+}
+
+/* Side bar open and collapse when window is mobile view */
+input[type=checkbox]
+{
+   display: none;
+}
+/* 2 icons one bar and cross but,not displayed until mobile view */
+#open,#cancel
+{
+    line-height: 80px;
+    color: white;
+    font-size: 20px;
+    display: none;
+}
+
+
+/* media query for 820px and lower */
+
+@media (max-width:820px)
+{
+    
+    /* css for labels  */
+    nav .bar
+    {
+        display: block;
+        float: right;
+        margin-right: 40px;
+    }
+    #open
+    {
+        display: block;
+    }
+
+
+    nav ul
+    {
+        position: fixed;
+        top: 80px;
+        height: 100vh;
+        background-color: rgba(34, 85, 136, 0.836);
+        width: 100%;
+        text-align: center;
+        left: -100%;
+        transition: all .5s;
+
+    }
+    nav li
+    {
+        display: block;
+    }
+  
+ 
+    #icon:checked ~ ul
+    {
+        left: 0;   
+    }
+    #icon:checked ~ label #open
+    {
+        display: none;
+    }
+    #icon:checked ~ label #cancel
+    {
+        display: block;
+    }
+ 
+
+}
